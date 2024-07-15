@@ -1,7 +1,7 @@
 // const { getAllTodos, addTodo } = require("../controllers/sendmsgController")
 
-const { getmsg } = require("../controllers/sendmsgController")
-const sendmsg = require("../modals/sendmsg")
+const { getmsg, sendmsg } = require("../controllers/sendmsgController")
+// const sendmsg = require("../modals/sendmsg")
 
 const route = require("express").Router()
 
