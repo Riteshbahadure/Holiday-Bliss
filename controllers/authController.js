@@ -15,7 +15,7 @@ exports.continueWithGoogle = asyncHandler(async (req, res) => {
     if (result) {
         // login
         const token = jwt.sign({ userId: result._id }, process.env.JWT_KEY, { expiresIn: "1d" })
-        res.cookie("travler", token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 })
+        res.cookie("travler", token, { httpOnly: true, maxAge: 100000 * 60000 * 60000 * 24000 })
         res.json({ message: "login Success", result })
     } else {
         // register
@@ -25,7 +25,7 @@ exports.continueWithGoogle = asyncHandler(async (req, res) => {
             photo: payload.picture
         })
         const token = jwt.sign({ userId: x._id }, process.env.JWT_KEY, { expiresIn: "1d" })
-        res.cookie("travler", token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 })
+        res.cookie("travler", token, { httpOnly: true, maxAge: 100000 * 6000 * 6000 * 24 })
         res.json({ message: "resgiter Success", result: x })
     }
 })
@@ -61,7 +61,7 @@ exports.loginUser = asyncHandler(async (req, res) => {
     //step 3
     const token = jwt.sign({ userId: result._id }, process.env.JWT_KEY, { expiresIn: "6h" })
     //step 4
-    res.cookie("auth-token", token, { httpOnly: true })
+    res.cookie("travler", token, { httpOnly: true, maxAge: 900000000 })
     res.json({
         message: "login success", result: {
             _id: result._id,

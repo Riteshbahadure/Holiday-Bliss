@@ -3,7 +3,7 @@ const Holiday = require("../modals/Holiday")
 const order = require("../modals/order")
 
 exports.placeorder = asyncHandler(async (req, res) => {
-    const { userId, holidayId } = req.body
+    // const { userId, holidayId } = req.body
     await order.create(req.body)
     res.json({ message: "order place success" })
 })
